@@ -1,0 +1,57 @@
+import React, { useState } from 'react';
+import ItineraryCard from '../ItineraryCard';
+import { useItinerary } from '../../hooks/useItinerary';
+
+const ItineraryBuilder = () => {
+    const { itinerary, addItineraryItem, removeItineraryItem } = useItinerary();
+    const [newItem, setNewItem] = useState('');
+
+    const handleAddItem = () => {
+        if (newItem.trim()) {
+            addItineraryItem(newItem);
+            setNewItem('');
+        }
+    };
+
+    return (
+        <div className="flex flex-col md:flex-row">
+            <div className="md:w-1/2 p-4">
+                <h2 className="text-xl font-bold mb-4">Create Your Itinerary</h2>
+                <input
+                    type="text"
+                    value={newItem}
+                    onChange={(e) => setNewItem(e.target.value)}
+                    placeholder="Add a new item"
+                    className="border p-2 mb-4 w-full"
+                />
+                <button
+                    onClick={handleAddItem}
+                    className="bg-blue-500 text-white p-2 rounded"
+                >
+                    Add Item
+                </button>
+                <div className="mt-4">
+                    {itinerary.map((item, index) => (
+                        <ItineraryCard
+                            key={index}
+                            item={item}
+                            onRemove={() => removeItineraryItem(index)}
+                        />
+                    ))}
+                </div>
+            </div>
+            <div className="md:w-1/2 p-4">
+                <h2 className="text-xl font-bold mb-4">Your Itinerary</h2>
+                <ul>
+                    {itinerary.map((item, index) => (
+                        <li key={index} className="border-b py-2">
+                            {item}
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </div>
+    );
+};
+
+export default ItineraryBuilder;

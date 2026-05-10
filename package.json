@@ -1,0 +1,40 @@
+{
+  "name": "PlanMyKerala",
+  "version": "1.0.0",
+  "description": "A web application for planning trips to Kerala with a dynamic itinerary builder.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "Next.js",
+    "Tailwind CSS",
+    "Itinerary Builder",
+    "Kerala"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.4",
+    "@types/leaflet": "^1.9.21",
+    "axios": "^1.13.2",
+    "leaflet": "^1.9.4",
+    "lucide-react": "^0.562.0",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "tailwindcss": "^2.2.19"
+  },
+  "devDependencies": {
+    "@types/node": "25.0.3",
+    "@types/react": "19.2.7",
+    "autoprefixer": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "postcss": "latest",
+    "typescript": "latest"
+  }
+}
