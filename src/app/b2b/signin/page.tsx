@@ -2,10 +2,10 @@
 
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { supabase } from '../../../lib/supabaseClient';
 
-export default function B2BSignIn() {
+function B2BSignInContent() {
   const router = useRouter();
   const params = useSearchParams();
   const modeParam = params?.get('mode');
@@ -105,5 +105,18 @@ export default function B2BSignIn() {
         </div>
       </div>
     </main>
+  );
+}
+
+
+export default function B2BSignIn() {
+  return (
+    <Suspense fallback={
+      <main className="min-h-screen flex items-center justify-center">
+        <div className="text-center">Loading...</div>
+      </main>
+    }>
+      <B2BSignInContent />
+    </Suspense>
   );
 }

@@ -21,6 +21,13 @@ const Header = () => {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
   useEffect(() => {
+    // Skip auth if Supabase is not configured
+    if (!supabase) {
+      setIsAuthed(false);
+      setIsAdmin(false);
+      return;
+    }
+
     const fetchRole = async (token?: string | null) => {
       if (!token) return;
       try {
@@ -79,7 +86,9 @@ const Header = () => {
   };
 
   const handleLogout = async () => {
-    await supabase.auth.signOut();
+    if (supabase) {
+      await supabase.auth.signOut();
+    }
     setIsAuthed(false);
     setIsAdmin(false);
     router.refresh();
