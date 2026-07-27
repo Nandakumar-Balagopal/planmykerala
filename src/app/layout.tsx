@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import Script from 'next/script';
+import { Analytics } from '@vercel/analytics/next';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import '../globals.css';
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </Suspense>
                 <main className="flex-grow relative z-10">{children}</main>
                 <Footer />
+                <Analytics />
             </body>
         </html>
     );
