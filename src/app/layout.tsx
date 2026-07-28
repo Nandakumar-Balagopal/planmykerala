@@ -1,37 +1,19 @@
-import React, { Suspense } from 'react';
-import Script from 'next/script';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import type { Metadata } from 'next';
 import '../globals.css';
+import './brand.css';
+import './articles.css';
+import './motion.css';
+import './conversion.css';
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-    return (
-        <html lang="en" data-theme="dark">
-            <head>
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-                <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-                {/* Google Analytics */}
-                <Script
-                    src="https://www.googletagmanager.com/gtag/js?id=G-B8BL0YN18E"
-                    strategy="afterInteractive"
-                />
-                <Script id="google-analytics" strategy="afterInteractive">
-                    {`
-                        window.dataLayer = window.dataLayer || [];
-                        function gtag(){dataLayer.push(arguments);}
-                        gtag('js', new Date());
-                        gtag('config', 'G-B8BL0YN18E');
-                    `}
-                </Script>
-            </head>
-            <body className="relative flex flex-col min-h-screen">
-                <Suspense fallback={<div className="h-16 bg-[var(--pmk-bg)]" />}>
-                    <Header />
-                </Suspense>
-                <main className="flex-grow relative z-10">{children}</main>
-                <Footer />
-            </body>
-        </html>
-    );
+export const metadata: Metadata = {
+  metadataBase: new URL('https://planmykerala.com'),
+  title: 'PlanMyKerala | Discover Kerala Beyond the Guidebooks',
+  description: 'Considered, deeply personal journeys through Kerala.',
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1, 'max-video-preview': -1 } },
+  openGraph: { title: 'PlanMyKerala', description: 'Discover Kerala Beyond the Guidebooks', type: 'website', locale: 'en_IN', siteName: 'PlanMyKerala' },
+  twitter: { card: 'summary_large_image', title: 'PlanMyKerala', description: 'Discover Kerala Beyond the Guidebooks' },
+};
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return <html lang="en"><body>{children}</body></html>;
 }
