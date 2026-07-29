@@ -8,6 +8,6 @@ export const metadata: Metadata = {
 };
 
 export default function BlogLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  const schema = { '@context': 'https://schema.org', '@type': 'Blog', name: 'PlanMyKerala Journal', description: 'Local, considered travel guides to Kerala.', url: 'https://planmykerala.com/blog', publisher: { '@type': 'Organization', name: 'PlanMyKerala', url: 'https://planmykerala.com' }, inLanguage: 'en-IN' };
+  const schema = { '@context': 'https://schema.org', '@type': 'Blog', name: 'PlanMyKerala Journal', description: 'Local, considered travel guides to Kerala.', url: 'https://www.planmykerala.com/blog', publisher: { '@type': 'Organization', name: 'PlanMyKerala', url: 'https://www.planmykerala.com' }, inLanguage: 'en-IN' };
   return <LuxuryChrome>{children}<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} /></LuxuryChrome>;
 }

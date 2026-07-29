@@ -56,7 +56,7 @@ export default function HomePage() {
         <section className="destinations section-pad" id="destinations">
           <div className="section-head"><div><p className="eyebrow"><i /> PLACES WITH A PULSE</p><h2>Find your <em>elsewhere.</em></h2></div><a href="#planner" className="text-link">View all destinations <ArrowRight size={16} /></a></div>
           <div className="destination-grid">
-            {destinations.map(([name, line, image], i) => <a className={`destination-card card-${i}`} href="#planner" key={name} style={{ backgroundImage: `url(${image})` }}><span className="number">0{i + 1}</span><div><h3>{name}</h3><p>{line}</p><span className="card-arrow"><ArrowRight size={17} /></span></div></a>)}
+            {destinations.map(([name, line, image], i) => <a className={`destination-card card-${i}`} href={`/destinations/${name.toLowerCase()}`} key={name} style={{ backgroundImage: `url(${image})` }}><span className="number">0{i + 1}</span><div><h3>{name}</h3><p>{line}</p><span className="card-arrow"><ArrowRight size={17} /></span></div></a>)}
           </div>
         </section>
 
