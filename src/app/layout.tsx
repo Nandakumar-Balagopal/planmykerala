@@ -5,6 +5,8 @@ import './articles.css';
 import './motion.css';
 import './conversion.css';
 import './guides.css';
+import './planner.css';
+import './performance.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.planmykerala.com'),
@@ -18,5 +20,5 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const businessSchema = { '@context': 'https://schema.org', '@type': ['TravelAgency', 'LocalBusiness'], name: 'PlanMyKerala', url: 'https://www.planmykerala.com', logo: 'https://www.planmykerala.com/icon.svg', description: 'A Kerala travel planning company creating personalised, locally informed journeys.', telephone: '+917025803160', email: 'info@planmykerala.com', priceRange: '$$', areaServed: { '@type': 'AdministrativeArea', name: 'Kerala, India' }, openingHours: 'Mo-Sa 09:00-20:00', sameAs: ['https://instagram.com/planmykerala', 'https://facebook.com/planmykerala'] };
-  return <html lang="en"><body>{children}<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }} /></body></html>;
+  return <html lang="en"><head><link rel="preload" href="/hero-unsplash-kerala.jpg" as="image" fetchPriority="high" /></head><body>{children}<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }} /></body></html>;
 }

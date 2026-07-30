@@ -1,0 +1,2 @@
+/* The original Unsplash opening image is served locally and preloaded to protect LCP. */
+.hero{background-image:linear-gradient(90deg,rgba(8,27,22,.78),rgba(8,27,22,.25) 70%,rgba(8,27,22,.45)),url('/hero-unsplash-kerala.jpg')}
